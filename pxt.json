@@ -1,0 +1,17 @@
+{
+    "name": "TC-I2C-NeoPixel",
+    "version": "1.0.0",
+    "description": "Makecode block for I2C NeoPixel",
+    "license": "MIT",
+    "dependencies": {
+        "core": "*"
+    },
+    "files": [
+        "README.md",
+        "i2C_neopixel.ts"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "public": true
+}
