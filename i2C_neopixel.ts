@@ -33,13 +33,40 @@ namespace tomatoCube {
   let ledSetData: number[] = []
   const NEOPIXEL_I2C_ADDR = 0x45
   
+  /**
+   * Sets the individual Color of the NeoPixel LED with Common Color.
+   * @param Neopixel Number, eg: 2
+   * @param color, eg: NeoPixel.Purple
+   */
+  //% blockId="TomatoCube_Neopixel_color" block="set Neopixel LED %ledNumber | with Color %color "
+  //% ledNumber.min=0
+  //% ledNumber.max=50
+  //% advanced=true
+  //% weight=93
+  export function setNeoColor(ledNumber: number, color: NeoPixelColors) {
+      setNeoRGB(ledNumber, ((NeoPixelColors >> 16) & 0xFF), ((NeoPixelColors >> 8) & 0xFF), ((NeoPixelColors) & 0xFF));
+  }
+
+  /**
+   * Sets the NeoPixel Strip Color with Common Color
+   * @param Neopixel Number, eg: 2
+   * @param color, eg: NeoPixel.Purple
+   */
+  //% blockId="TomatoCube_Strip_color" block="set Neopixel LED %ledNumber | with Color %color "
+  //% ledNumber.min=0
+  //% ledNumber.max=50
+  //% advanced=true
+  //% weight=92
+  export function setStripColor(ledNumber: number, color: NeoPixelColors) {
+      setStripRGB(((NeoPixelColors >> 16) & 0xFF), ((NeoPixelColors >> 8) & 0xFF), ((NeoPixelColors) & 0xFF));
+  }
 
   /**
    * Sets the individual Color of the NeoPixel LED.
    * @param Neopixel Number, eg: 2
    * @param Red Green Blue in the range of 0 to 255, eg: 128
    */
-  //% blockId="TomatoCube_Neopixel_LED" block="set Neopixel LED %ledNumber | with Red %ledR | Green %ledG | Blue %ledB \\%"
+  //% blockId="TomatoCube_Neopixel_RGB" block="set Neopixel LED %ledNumber | with Red %ledR | Green %ledG | Blue %ledB "
   //% ledR.min=0
   //% ledR.max=255
   //% ledG.min=0
@@ -49,7 +76,7 @@ namespace tomatoCube {
   //% ledNumber.min=0
   //% ledNumber.max=50
   //% weight=91
-  export function setNeoColor(ledNumber: number, ledR: number, ledG: number, ledB: number) {
+  export function setNeoRGB(ledNumber: number, ledR: number, ledG: number, ledB: number) {
     if (ledNumber < 20) {
         ledSetData = [
             2,
@@ -90,7 +117,7 @@ namespace tomatoCube {
    * Sets the NeoPixel Strip Color.
    * @param Red Green Blue in the range of 0 to 255, eg: 128
    */
-  //% blockId="TomatoCube_Neopixel_strip" block="set Neopixel Strip with Red %ledR | Green %ledG | Blue %ledB \\%"
+  //% blockId="TomatoCube_Strip_RGB" block="set Neopixel Strip with Red %ledR | Green %ledG | Blue %ledB "
   //% ledR.min=0
   //% ledR.max=255
   //% ledG.min=0
@@ -98,7 +125,7 @@ namespace tomatoCube {
   //% ledB.min=0
   //% ledB.max=255
   //% weight=90
-  export function setStripColor(ledR: number, ledG: number, ledB: number) {  
+  export function setStripRGB(ledR: number, ledG: number, ledB: number) {  
     ledSetData = [
         2,
         ledR,
