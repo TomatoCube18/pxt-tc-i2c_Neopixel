@@ -44,7 +44,7 @@ namespace tomatoCube {
   //% advanced=true
   //% weight=93
   export function setNeoColor(ledNumber: number, color: NeoPixelColors) {
-      setNeoRGB(ledNumber, ((NeoPixelColors >> 16) & 0xFF), ((NeoPixelColors >> 8) & 0xFF), ((NeoPixelColors) & 0xFF));
+      setNeoRGB(ledNumber, ((color >> 16) & 0xFF), ((color >> 8) & 0xFF), ((color) & 0xFF));
   }
 
   /**
@@ -58,7 +58,7 @@ namespace tomatoCube {
   //% advanced=true
   //% weight=92
   export function setStripColor(ledNumber: number, color: NeoPixelColors) {
-      setStripRGB(((NeoPixelColors >> 16) & 0xFF), ((NeoPixelColors >> 8) & 0xFF), ((NeoPixelColors) & 0xFF));
+      setStripRGB(((color >> 16) & 0xFF), ((color >> 8) & 0xFF), ((color) & 0xFF));
   }
 
   /**
