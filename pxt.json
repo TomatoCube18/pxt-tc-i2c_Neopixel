@@ -1,6 +1,6 @@
 {
     "name": "TC-I2C-NeoPixel",
-    "version": "1.6.0",
+    "version": "1.6.2",
     "description": "Makecode block for I2C NeoPixel",
     "license": "MIT",
     "dependencies": {
