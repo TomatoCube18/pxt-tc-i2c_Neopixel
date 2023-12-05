@@ -54,8 +54,6 @@ namespace tomatoCube {
    */
   //% subcategory=NeoPixel
   //% blockId="TomatoCube_Strip_color" block="set Neopixel Strip with Color %color "
-  //% ledNumber.min=0
-  //% ledNumber.max=50
   //% weight=92
   export function setStripColor(ledNumber: number, color: NeoPixelColors) {
       setStripRGB(((color >> 16) & 0xFF), ((color >> 8) & 0xFF), ((color) & 0xFF));
@@ -67,7 +65,7 @@ namespace tomatoCube {
    * @param Red Green Blue in the range of 0 to 255, eg: 128
    */
   //% subcategory=NeoPixel
-  //% blockId="TomatoCube_Neopixel_RGB" block="set Neopixel LED %ledNumber | with Red %ledR ,Green %ledG ,Blue %ledB "
+  //% blockId="TomatoCube_Neopixel_RGB" block="set Neopixel LED %ledNumber | with Red %ledR Green %ledG Blue %ledB "
   //% ledR.min=0
   //% ledR.max=255
   //% ledG.min=0
@@ -76,7 +74,6 @@ namespace tomatoCube {
   //% ledB.max=255
   //% ledNumber.min=0
   //% ledNumber.max=50
-  //% advanced=true
   //% weight=91
   export function setNeoRGB(ledNumber: number, ledR: number, ledG: number, ledB: number) {
     if (ledNumber < 20) {
@@ -120,14 +117,13 @@ namespace tomatoCube {
    * @param Red Green Blue in the range of 0 to 255, eg: 128
    */
   //% subcategory=NeoPixel
-  //% blockId="TomatoCube_Strip_RGB" block="set Neopixel Strip with Red %ledR ,Green %ledG ,Blue %ledB "
+  //% blockId="TomatoCube_Strip_RGB" block="set Neopixel Strip with Red %ledR Green %ledG Blue %ledB "
   //% ledR.min=0
   //% ledR.max=255
   //% ledG.min=0
   //% ledG.max=255
   //% ledB.min=0
   //% ledB.max=255
-  //% advanced=true
   //% weight=90
   export function setStripRGB(ledR: number, ledG: number, ledB: number) {  
     ledSetData = [
