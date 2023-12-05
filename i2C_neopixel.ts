@@ -26,7 +26,7 @@ enum NeoPixelColors {
     Black = 0x000000
 }
 
-//% color=#0fbc11 icon="\u272a" block="NeoPixel"
+//% color=#0fbc11 icon="\u272a" block="TomatoCube"
 namespace tomatoCube {
 
   let ledClearData: number[] = []
@@ -38,6 +38,7 @@ namespace tomatoCube {
    * @param Neopixel Number, eg: 2
    * @param color, eg: NeoPixel.Purple
    */
+  //% subcategory=NeoPixel
   //% blockId="TomatoCube_Neopixel_color" block="set Neopixel LED %ledNumber | with Color %color "
   //% ledNumber.min=0
   //% ledNumber.max=50
@@ -51,6 +52,7 @@ namespace tomatoCube {
    * @param Neopixel Number, eg: 2
    * @param color, eg: NeoPixel.Purple
    */
+  //% subcategory=NeoPixel
   //% blockId="TomatoCube_Strip_color" block="set Neopixel Strip with Color %color "
   //% ledNumber.min=0
   //% ledNumber.max=50
@@ -64,6 +66,7 @@ namespace tomatoCube {
    * @param Neopixel Number, eg: 2
    * @param Red Green Blue in the range of 0 to 255, eg: 128
    */
+  //% subcategory=NeoPixel
   //% blockId="TomatoCube_Neopixel_RGB" block="set Neopixel LED %ledNumber | with Red %ledR ,Green %ledG ,Blue %ledB "
   //% ledR.min=0
   //% ledR.max=255
@@ -116,6 +119,7 @@ namespace tomatoCube {
    * Sets the NeoPixel Strip Color.
    * @param Red Green Blue in the range of 0 to 255, eg: 128
    */
+  //% subcategory=NeoPixel
   //% blockId="TomatoCube_Strip_RGB" block="set Neopixel Strip with Red %ledR ,Green %ledG ,Blue %ledB "
   //% ledR.min=0
   //% ledR.max=255
@@ -165,6 +169,7 @@ namespace tomatoCube {
   /**
    * Clear NeoPixel.
    */
+  //% subcategory=NeoPixel
   //% blockId="TomatoCube_Neopixel_clear" block="clear NeoPixels"
   //% weight=89
   export function clearStrip() {
@@ -183,6 +188,7 @@ namespace tomatoCube {
   /**
    * Apply changes to NeoPixel.
    */
+  //% subcategory=NeoPixel
   //% blockId="TomatoCube_Neopixel_write" block="apply/write changes to NeoPixel"
   //% weight=88
   export function writeStrip() {
