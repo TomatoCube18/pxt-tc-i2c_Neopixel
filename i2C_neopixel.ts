@@ -55,7 +55,7 @@ namespace tomatoCube {
   //% subcategory=NeoPixel
   //% blockId="TomatoCube_Strip_color" block="set Neopixel Strip with Color %color "
   //% weight=92
-  export function setStripColor(ledNumber: number, color: NeoPixelColors) {
+  export function setStripColor(color: NeoPixelColors) {
       setStripRGB(((color >> 16) & 0xFF), ((color >> 8) & 0xFF), ((color) & 0xFF));
   }
 
