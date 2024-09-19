@@ -169,6 +169,7 @@ namespace tomatoCube {
   //% blockId="TomatoCube_Neopixel_clear" block="clear NeoPixels with Strip Length %ledNumber"
   //% ledNumber.min=0
   //% ledNumber.max=32
+  //% ledNumber.defl=20
   //% weight=89
   export function clearStrip(ledNumber: number) {
     ledSetData = [
@@ -200,6 +201,7 @@ namespace tomatoCube {
   //% blockId="TomatoCube_Neopixel_write" block="apply/write changes to NeoPixel with Strip Length %ledNumber"
   //% ledNumber.min=0
   //% ledNumber.max=32
+  //% ledNumber.defl=20
   //% weight=88
   export function writeStrip(ledNumber: number) {
     ledSetData = [
