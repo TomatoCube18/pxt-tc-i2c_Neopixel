@@ -65,7 +65,7 @@ namespace tomatoCube {
    * @param Red Green Blue in the range of 0 to 255, eg: 128
    */
   //% subcategory=NeoPixel(I2C)
-  //% blockId="TomatoCube_Neopixel_RGB" block="set Neopixel LED %ledNumber | with Red %ledR Green %ledG Blue %ledB "
+  //% blockId="TomatoCube_Neopixel_RGB" block="set Neopixel LED %ledNumber | with Red %ledR Green %ledG Blue %ledB"
   //% ledR.min=0
   //% ledR.max=255
   //% ledG.min=0
