@@ -277,7 +277,7 @@ namespace tomatoCube {
         Buffer.fromArray(ledSetData),
         false
     );
-    pause(100) 
+    pause(10) 
 
     let readbuf = pins.i2cReadBuffer(NEOPIXEL_I2C_ADDR, pins.sizeOf(NumberFormat.UInt8LE) * 2)
     return (readbuf[1] & 0x0F);
