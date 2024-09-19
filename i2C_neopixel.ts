@@ -230,7 +230,7 @@ namespace tomatoCube {
    * @param write SW_MOD 0~3 in the range of 0 to 15, eg: 10
    */
   //% subcategory=NeoPixel(I2C)
-  //% blockId="TomatoCube_Exp_Out" block="set SW_MOD 0-3 with val %outVal "
+  //% blockId="TomatoCube_Exp_Out" block="[Experimental] set SW_MOD 0-3 with value %outVal "
   //% outVal.min=0
   //% outVal.max=15
   //% weight=80
@@ -262,7 +262,7 @@ namespace tomatoCube {
    * @param read SW_MOD 4~7 in the range of 0 to 15, eg: 10
    */
   //% subcategory=NeoPixel(I2C)
-  //% blockId="TomatoCube_Exp_In" block="read SW_MOD 4-7"
+  //% blockId="TomatoCube_Exp_In" block="[Experimental] get SW_MOD 4-7"
   //% weight=79
   export function getInMod(): number {  
     
