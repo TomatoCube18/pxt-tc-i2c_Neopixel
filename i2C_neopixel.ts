@@ -41,7 +41,7 @@ namespace tomatoCube {
   //% subcategory=NeoPixel(I2C)
   //% blockId="TomatoCube_Neopixel_color" block="set Neopixel LED %ledNumber | with Color %color "
   //% ledNumber.min=0
-  //% ledNumber.max=50
+  //% ledNumber.max=32
   //% weight=93
   export function setNeoColor(ledNumber: number, color: NeoPixelColors) {
       setNeoRGB(ledNumber, ((color >> 16) & 0xFF), ((color >> 8) & 0xFF), ((color) & 0xFF));
@@ -73,10 +73,10 @@ namespace tomatoCube {
   //% ledB.min=0
   //% ledB.max=255
   //% ledNumber.min=0
-  //% ledNumber.max=50
+  //% ledNumber.max=32
   //% weight=91
   export function setNeoRGB(ledNumber: number, ledR: number, ledG: number, ledB: number) {
-    if (ledNumber < 20) {
+    if (ledNumber < 32) {
         ledSetData = [
             2,
             ledR,
@@ -166,9 +166,21 @@ namespace tomatoCube {
    * Clear NeoPixel.
    */
   //% subcategory=NeoPixel(I2C)
-  //% blockId="TomatoCube_Neopixel_clear" block="clear NeoPixels"
+  //% blockId="TomatoCube_Neopixel_clear" block="clear NeoPixels with Strip Length %ledNumber"
+  //% ledNumber.min=0
+  //% ledNumber.max=32
   //% weight=89
-  export function clearStrip() {
+  export function clearStrip(ledNumber: number) {
+    ledSetData = [
+        1,
+        ledNumber
+    ]
+    pins.i2cWriteBuffer(
+        NEOPIXEL_I2C_ADDR,
+        Buffer.fromArray(ledSetData),
+        false
+    );
+    
     ledClearData = [
         0,
         0
@@ -185,9 +197,22 @@ namespace tomatoCube {
    * Apply changes to NeoPixel.
    */
   //% subcategory=NeoPixel(I2C)
-  //% blockId="TomatoCube_Neopixel_write" block="apply/write changes to NeoPixel"
+  //% blockId="TomatoCube_Neopixel_write" block="apply/write changes to NeoPixel with Strip Length %ledNumber"
+  //% ledNumber.min=0
+  //% ledNumber.max=32
+  //% weight=89
   //% weight=88
-  export function writeStrip() {
+  export function writeStrip(ledNumber: number) {
+    ledSetData = [
+        1,
+        ledNumber
+    ]
+    pins.i2cWriteBuffer(
+        NEOPIXEL_I2C_ADDR,
+        Buffer.fromArray(ledSetData),
+        false
+    );
+    
     ledSetData = [
         0,
         1
