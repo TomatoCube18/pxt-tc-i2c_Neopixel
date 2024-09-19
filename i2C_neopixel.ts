@@ -200,7 +200,6 @@ namespace tomatoCube {
   //% blockId="TomatoCube_Neopixel_write" block="apply/write changes to NeoPixel with Strip Length %ledNumber"
   //% ledNumber.min=0
   //% ledNumber.max=32
-  //% weight=89
   //% weight=88
   export function writeStrip(ledNumber: number) {
     ledSetData = [
@@ -224,6 +223,62 @@ namespace tomatoCube {
     );
     pause(2)
 
+  }
+
+  /**
+   * Use Expansion Port(Out).
+   * @param write SW_MOD 0~3 in the range of 0 to 15, eg: 10
+   */
+  //% subcategory=NeoPixel(I2C)
+  //% blockId="TomatoCube_Exp_Out" block="set SW_MOD 0-3 with val %outVal "
+  //% outVal.min=0
+  //% outVal.max=15
+  //% weight=80
+  export function setOutMod(outVal: number) {  
+    ledSetData = [
+        1,
+        outVal
+    ]
+    pins.i2cWriteBuffer(
+        NEOPIXEL_I2C_ADDR,
+        Buffer.fromArray(ledSetData),
+        false
+    );
+    
+    ledSetData = [
+        0,
+        4
+    ]
+    pins.i2cWriteBuffer(
+        NEOPIXEL_I2C_ADDR,
+        Buffer.fromArray(ledSetData),
+        false
+    );
+    pause(2) 
+  }
+
+  /**
+   * Use Expansion Port(In).
+   * @param read SW_MOD 4~7 in the range of 0 to 15, eg: 10
+   */
+  //% subcategory=NeoPixel(I2C)
+  //% blockId="TomatoCube_Exp_In" block="read SW_MOD 4-7"
+  //% weight=79
+  export function getInMod(): number {  
+    
+    ledSetData = [
+        0,
+        5
+    ]
+    pins.i2cWriteBuffer(
+        NEOPIXEL_I2C_ADDR,
+        Buffer.fromArray(ledSetData),
+        false
+    );
+    pause(100) 
+
+    let readbuf = pins.i2cReadBuffer(NEOPIXEL_I2C_ADDR, pins.sizeOf(NumberFormat.UInt8LE) * 2)
+    return (readbuf[1] & 0x0F);
   }
 
 }
